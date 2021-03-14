@@ -1,0 +1,10 @@
+version: "1.0"
+services:
+
+  grpc-client:
+      build: ./grpc-cliente
+      ports:
+        - "80:3000"
+
+  grpc-server:
+      build: ./grpc-servidor

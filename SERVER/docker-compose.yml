@@ -1,0 +1,9 @@
+version: "3.3"
+services:
+
+
+
+  node-api:
+      build: ./API
+      ports:
+        - "80:5000"
