@@ -12,7 +12,7 @@ import (
 )
 
 const (
-	address = "localhost:4000"
+	address = "grpc-server:4000"
 )
 
 func failOnError(err error, msg string) {
@@ -61,10 +61,13 @@ func newElement(w http.ResponseWriter, r *http.Request) {
 }
 
 func handleRequests() {
+	log.Printf("CLIENTE GRPC ACTIVO PUERTO 81:3000")
 	http.HandleFunc("/", newElement)
 	log.Fatal(http.ListenAndServe(":3000", nil))
 }
 
 func main() {
+	
 	handleRequests()
+	
 }

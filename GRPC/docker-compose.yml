@@ -1,10 +1,17 @@
-version: "1.0"
+version: "3.4"
 services:
 
   grpc-client:
+      container_name: cliente
       build: ./grpc-cliente
       ports:
         - "80:3000"
+      links:
+      - grpc-server
+
 
   grpc-server:
+      container_name: servidor
       build: ./grpc-servidor
+      ports:
+        - "8080:4000"

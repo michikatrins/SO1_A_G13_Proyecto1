@@ -32,10 +32,12 @@ func (s *server) SayHello(ctx context.Context, in *pb.HelloRequest) (*pb.HelloRe
 	log.Printf("Received: %v", in.GetName())
 
 	postBody := []byte(string(in.GetName()))
-	req, err := http.Post("http://localhost:5000", "application/json", bytes.NewBuffer(postBody))
+	log.Printf("Response : llego al server")
+	req, err := http.Post("104.196.23.85:80", "application/json", bytes.NewBuffer(postBody))
 	req.Header.Set("Content-Type", "application/json")
 	failOnError(err, "POST new document")
 	defer req.Body.Close()
+	log.Printf("Response : envio datos")
 
 	//Read the response body
 	newBody, err := ioutil.ReadAll(req.Body)
@@ -47,6 +49,7 @@ func (s *server) SayHello(ctx context.Context, in *pb.HelloRequest) (*pb.HelloRe
 }
 
 func main() {
+	log.Printf("SERVIDOR GRPC ACTIVO PUERTO 4000")
 	lis, err := net.Listen("tcp", port)
 	if err != nil {
 		log.Fatalf("failed to listen: %v", err)
@@ -56,4 +59,5 @@ func main() {
 	if err := s.Serve(lis); err != nil {
 		log.Fatalf("failed to serve: %v", err)
 	}
+	
 }
