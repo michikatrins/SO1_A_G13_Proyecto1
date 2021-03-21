@@ -1,5 +1,5 @@
 const express = require('express')
-//const mongoose = require('mongoose')
+const mongoose = require('mongoose')
 const app = express();
 const MongoClient = require("mongodb").MongoClient;
 
@@ -32,5 +32,5 @@ app.get('/', (req, res) => {
     res.json({message: 'OK'})
 });
 
-app.listen(5000);
-console.log("servidor corriendo en puerto",5000);
+app.listen(3000);
+console.log("servidor corriendo en puerto",3000);
