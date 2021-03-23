@@ -29,7 +29,7 @@ func newElement(w http.ResponseWriter, r *http.Request) {
 	body["CAMINO"] = "RabbitMQ"
 	data, err := json.Marshal(body)
 
-	conn, err := amqp.Dial("amqp://guest:guest@35.231.246.240:80/")
+	conn, err := amqp.Dial("amqp://guest:guest@rabbit-server")
 	failOnError(err, "RabbitMQ connection")
 	defer conn.Close()
 

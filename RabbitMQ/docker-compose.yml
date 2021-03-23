@@ -1,0 +1,25 @@
+  
+version: "3.4"
+services:
+  publisher-rabbit: 
+    container_name: pub
+    restart: always
+    build: ./Sender
+    ports: 
+      - "80:5000"
+    links:
+      - rabbit-server
+  
+  subscriber-rabbit:
+    container_name: sub
+    restart: always
+    build: ./Receiver
+    links:
+      - rabbit-server
+
+  rabbit-server:
+    container_name: rabbit
+    image: rabbitmq
+    ports:
+      - "8080:5672"
+    
