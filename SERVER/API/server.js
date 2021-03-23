@@ -2,6 +2,7 @@ const express = require('express')
 //const mongoose = require('mongoose')
 const app = express();
 const MongoClient = require("mongodb").MongoClient;
+const fs = require('fs')
 
 //mongoose.connect('mongodb://mongodb/mimongo')
 //    .then(db => console.log('la BD se conecto correctamente a', db.connection.host))
