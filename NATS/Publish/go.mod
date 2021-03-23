@@ -1,4 +1,4 @@
-module Subscribe
+module Publish
 
 go 1.16
 
