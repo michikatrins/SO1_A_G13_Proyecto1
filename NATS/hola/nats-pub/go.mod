@@ -1,4 +1,4 @@
-module Publish
+module nats-pub
 
 go 1.16
 

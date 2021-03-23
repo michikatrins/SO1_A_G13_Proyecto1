@@ -1,4 +1,4 @@
-module Subscribe
+module nats-sub
 
 go 1.16
 
