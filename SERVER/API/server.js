@@ -28,6 +28,71 @@ app.post('/', async (req, res) => {
     }
 });
 
+
+
+app.get('/data', async (req, res) => {
+    var dat=[];
+    try {
+        db.collection("personita2").find({}).toArray(function(err, result) {
+            if (err) throw err;
+            console.log(result);
+            res.json(result);
+          });
+        
+    } catch (err) {
+        console.log(err);
+        res.status(500).json({ 'message': 'failed' });
+    }
+});
+
+
+
+
+app.get('/mem', async (req, res) => {
+    var dat="";
+    try {
+        var archivo="/proc/mem_grupo13";
+        fs.readFile(archivo, 'utf8' , (err, data) => {
+            if (err) {
+              console.error(err);
+              return
+            }
+            dat=JSON.parse(data);
+            console.log("salida1"+dat);
+            res.json(dat);
+          });
+          console.log("salida2"+dat);
+          
+    } catch (err) {
+        console.log(err);
+        res.status(500).json({ 'message': 'failed reading' });
+    }
+});
+
+app.get('/proc', async (req, res) => {
+    var dat="";
+    try {
+        var archivo="/proc/proc_grupo13";
+        fs.readFile(archivo, 'utf8' , (err, data) => {
+            if (err) {
+              console.error(err);
+              return
+            }
+            //dat=JSON.parse(data);
+            console.log("salida1"+data);
+            //res.json(dat);
+            res.send(data)
+          });
+          console.log("salida2"+dat);
+          
+    } catch (err) {
+        console.log(err);
+        res.status(500).json({ 'message': 'failed reading' });
+    }
+});
+
+
+
 app.get('/', (req, res) => {
     res.json({message: 'OK'})
 });
