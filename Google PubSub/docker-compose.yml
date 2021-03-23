@@ -1,0 +1,15 @@
+version: "3.4"
+services:
+
+  publisher_pubsub:
+      container_name: cliente
+      build: ./Publisher
+      ports:
+        - "80:80"
+      links:
+      - suscribe_pubsub
+
+
+  suscribe_pubsub:
+      container_name: servidor
+      build: ./Suscribe

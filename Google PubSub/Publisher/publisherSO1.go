@@ -4,10 +4,13 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
-
+	"io/ioutil"
+	"log"
 	"net/http"
 
 	"cloud.google.com/go/pubsub"
+	"golang.org/x/oauth2/google"
+	"google.golang.org/api/option"
 )
 
 type msg_COVID struct {
@@ -16,6 +19,7 @@ type msg_COVID struct {
 	Age          int
 	Infectedtype string
 	State        string
+	CAMINO       string
 }
 
 const (
@@ -38,7 +42,7 @@ func Server(wr http.ResponseWriter, req *http.Request) {
 			fmt.Println("Error al recibir cadena: %v", _error)
 		}
 
-		message, _error := json.Marshal(msg_COVID{Name: json_covid.Name, Location: json_covid.Location, Age: json_covid.Age, Infectedtype: json_covid.Infectedtype, State: json_covid.State})
+		message, _error := json.Marshal(msg_COVID{Name: json_covid.Name, Location: json_covid.Location, Age: json_covid.Age, Infectedtype: json_covid.Infectedtype, State: json_covid.State, CAMINO: "PUBSUB"})
 
 		if _error != nil {
 			fmt.Fprintf(wr, "Error en parser: %v", _error)
@@ -56,9 +60,16 @@ func Server(wr http.ResponseWriter, req *http.Request) {
 
 func publish(msg string) error {
 
-	ctx := context.Background()
+	//lectura de credenciales
+	jsonKey, err := ioutil.ReadFile("key.json")
+	conf, err := google.JWTConfigFromJSON(jsonKey, pubsub.ScopePubSub, pubsub.ScopeCloudPlatform)
+	if err != nil {
+		log.Fatal(err)
+	}
 
-	client, _error := pubsub.NewClient(ctx, projectId)
+	ctx := context.Background()
+	ts := conf.TokenSource(ctx)
+	client, _error := pubsub.NewClient(ctx, projectId, option.WithTokenSource(ts))
 
 	if _error != nil {
 		fmt.Println("Error conexión: %v", _error)
