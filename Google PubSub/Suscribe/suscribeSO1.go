@@ -58,7 +58,7 @@ func listen() error {
 		//bytes.NewBuffer
 		postBody := []byte(string(msg.Data))
 		log.Printf("Response : llego al server")
-		http.Post("http://104.196.23.85:80", "application/json", bytes.NewBuffer(postBody))
+		http.Post("http://34.69.47.240:80", "application/json", bytes.NewBuffer(postBody))
 		log.Printf("Response : envio datos")
 
 		//ENVIAR A IP
