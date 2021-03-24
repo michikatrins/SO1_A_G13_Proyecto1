@@ -7,16 +7,29 @@ var xVal = dps.length + 1;
 var yVal = 15;
 var updateInterval = 1000;
 
-class DynamicLineChart extends Component {
+class DynamicRam extends Component {
 	
 	constructor() {
 		super();
 		this.updateChart = this.updateChart.bind(this);
 	}
 	
-	componentDidMount() {
-		setInterval(this.updateChart, updateInterval);
-	}
+    state = {
+        contacts: []
+    };
+
+	// componentDidMount() {
+	// 	setInterval(this.updateChart, updateInterval);
+	// }
+
+    componentDidMount() {
+        fetch('http://jsonplaceholder.typicode.com/users')
+            .then(res => res.json())
+            .then((data) => {
+                this.setState({ contacts: data })
+            })
+            .catch(console.log)
+    }
 
 	updateChart() {
 		yVal = yVal +  Math.round(5 + Math.random() *(-5-5));
@@ -31,7 +44,7 @@ class DynamicLineChart extends Component {
 	render() {
 		const options = {
 			title :{
-				text: "Dynamic Line Chart"
+				text: "RAM"
 			},
 			data: [{
 				type: "line",
@@ -39,16 +52,20 @@ class DynamicLineChart extends Component {
 			}]
 		}
 		
+        console.log(this.state.value);
+
 		return (
 		<div>
-			<h1>React Dynamic Line Chart</h1>
-			<CanvasJSChart options = {options} 
+            
+			<h1>CONSUMO DE MEMORIA</h1>
+            
+			{/* <CanvasJSChart options = {options} 
 				onRef={ref => this.chart = ref}
-			/>
+			/> */}
 			{/*You can get reference to the chart instance as shown above using onRef. This allows you to access all chart properties and methods*/}
 		</div>
 		);
 	}
 }
 
-export default DynamicLineChart;
+export default DynamicRam;
