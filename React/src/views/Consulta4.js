@@ -2,39 +2,37 @@ import React, { Component } from "react";
 import CanvasJSReact from "../assets/canvasjs.react";
 var CanvasJSChart = CanvasJSReact.CanvasJSChart;
 
-class Consulta5 extends Component {
+class Consulta4 extends Component {
   constructor() {
     super();
     this.state = {
       archivo: [],
-      parseado: [],
     };
   }
 
   componentDidMount() {
-    fetch("http://34.69.47.240:80/data")
-      .then((response) => response.json())
-      .then((datos) => {
-        console.log(datos);
-        this.state = { archivo: datos };
-      });
+    try {
+      fetch("http://34.69.47.240:80/data")
+        .then((response) => response.json())
+        .then((datos) => {
+          this.setState({ archivo: datos });
+        });
+    } catch {}
   }
   render() {
-    var infectados = {};
+    let infectados = {};
     const { archivo } = this.state;
     console.log(archivo);
     console.log(archivo.length);
+
     for (var i = 0; i < archivo.length; i++) {
-      if (!(archivo[i].infectedtype in infectados)) {
-        infectados[archivo[i].infectedtype] = 1;
+      if (!(archivo[i].state in infectados)) {
+        infectados[archivo[i].state] = 1;
       } else {
-        infectados[archivo[i].infectedtype] += 1;
+        infectados[archivo[i].state] += 1;
       }
-      console.log(archivo[i].infectedtype);
     }
     console.log(infectados);
-    console.log(infectados.key);
-    console.log(infectados.value);
 
     var todo = [];
     for (var key in infectados) {
@@ -49,13 +47,12 @@ class Consulta5 extends Component {
       exportEnabled: true,
       animationEnabled: true,
       title: {
-        text:
-          "Gráfico circular del porcentaje de casos infectados por infectedType.",
+        text: "Gráfico circular del porcentaje de casos infectados por State.",
       },
       data: [
         {
           type: "pie",
-          startAngle: 75,
+          startAngle: 90,
           toolTipContent: "<b>{label}</b>: {y}%",
           showInLegend: "true",
           legendText: "{label}",
@@ -68,7 +65,7 @@ class Consulta5 extends Component {
 
     return (
       <div>
-        <h1>Grupo_13</h1>
+        <h1>Grupo 13</h1>
         <CanvasJSChart
           options={options}
           /* onRef={ref => this.chart = ref} */
@@ -79,4 +76,4 @@ class Consulta5 extends Component {
   }
 }
 
-export default Consulta5;
+export default Consulta4;
