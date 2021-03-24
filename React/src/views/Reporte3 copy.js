@@ -9,7 +9,7 @@ var CanvasJSChart = CanvasJSReact.CanvasJSChart;
 const data = [];
 
 
-class Reporte9 extends Component{
+class Reporte3 extends Component{
 
   constructor() {
       super();
@@ -87,4 +87,4 @@ class Reporte9 extends Component{
 }
 
 
-export default Reporte9;
+export default Reporte3;
