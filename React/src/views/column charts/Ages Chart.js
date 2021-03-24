@@ -9,7 +9,6 @@ class AgesChart extends Component
         range: [],
     };
 
-
     componentDidMount() {
 		fetch("http://34.69.47.240/data",)
 		  .then((response) => response.json())
@@ -76,10 +75,19 @@ class AgesChart extends Component
         console.log(this.state.range);
         
 		const options = {
+            exportEnabled: true,
+			animationEnabled: true,
 			title: {
 				text: "Personas Infectadas"
 			},
-			animationEnabled: true,
+            axisX: {
+				title: "Rango de Edades",
+				suffix: ""
+			},
+            axisY: {
+				title: "Cantidad Infectados",
+				suffix: ""
+			},
 			data: [
 			{
 				// Change type to "doughnut", "line", "splineArea", etc.

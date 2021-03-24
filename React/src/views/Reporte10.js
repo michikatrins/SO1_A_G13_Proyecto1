@@ -16,7 +16,7 @@ import {
 } from "react-router-dom";
 
 import './bootstrap.min.css'; 
-import LineChart from './line charts/Line Chart';
+import DynamicRam from './dynamic charts/Dynamic Ram';
 import BootstrapTable from 'react-bootstrap-table-next';
 
 const person = [
