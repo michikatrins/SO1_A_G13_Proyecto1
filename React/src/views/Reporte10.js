@@ -16,8 +16,7 @@ import {
 } from "react-router-dom";
 
 import './bootstrap.min.css'; 
-import DynamicRam from './dynamic charts/Dynamic Ram';
-import LineChart from './column charts/Ages Chart';
+import LineChart from './line charts/Line Chart';
 import BootstrapTable from 'react-bootstrap-table-next';
 
 const person = [
@@ -43,7 +42,7 @@ const person = [
   }];
 
 
-class Reporte7 extends Component {  
+class Reporte10 extends Component {  
   render() {    
     return (
 		<div>
@@ -56,7 +55,7 @@ class Reporte7 extends Component {
 						<Col xl={{ span: 7, offset: 3 }} lg={{ span: 8, offset: 3 }} xs={{ span: 8, offset: 2 }}>
 							<Container>
 								<div className="content">
-									<Route exact path="/" component={LineChart}/>
+									<Route exact path="/" component={DynamicRam}/>
 								</div>
 							</Container>
 						</Col>					
@@ -67,4 +66,4 @@ class Reporte7 extends Component {
   }
 }
 
-export default Reporte7;
+export default Reporte10;

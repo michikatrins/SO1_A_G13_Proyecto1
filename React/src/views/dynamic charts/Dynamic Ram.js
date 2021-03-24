@@ -14,22 +14,16 @@ class DynamicRam extends Component {
 		this.updateChart = this.updateChart.bind(this);
 	}
 	
-    state = {
-        contacts: []
-    };
 
 	// componentDidMount() {
 	// 	setInterval(this.updateChart, updateInterval);
 	// }
 
     componentDidMount() {
-        fetch('http://jsonplaceholder.typicode.com/users')
-            .then(res => res.json())
-            .then((data) => {
-                this.setState({ contacts: data })
-            })
-            .catch(console.log)
-    }
+		fetch("http://34.69.47.240/proc",)
+		  .then((response) => response.json())
+		  .then((datos) => console.log(datos))
+	}
 
 	updateChart() {
 		yVal = yVal +  Math.round(5 + Math.random() *(-5-5));
@@ -51,8 +45,6 @@ class DynamicRam extends Component {
 				dataPoints : dps
 			}]
 		}
-		
-        console.log(this.state.value);
 
 		return (
 		<div>
