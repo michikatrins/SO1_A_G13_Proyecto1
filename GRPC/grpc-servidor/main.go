@@ -33,7 +33,7 @@ func (s *server) SayHello(ctx context.Context, in *pb.HelloRequest) (*pb.HelloRe
 
 	postBody := []byte(string(in.GetName()))
 	log.Printf("Response : llego al server")
-	req, err := http.Post("http://104.196.23.85:80", "application/json", bytes.NewBuffer(postBody))
+	req, err := http.Post("http:// 34.69.47.240:80", "application/json", bytes.NewBuffer(postBody))
 	req.Header.Set("Content-Type", "application/json")
 	failOnError(err, "POST new document")
 	defer req.Body.Close()
