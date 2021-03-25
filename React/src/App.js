@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Template from "./views/Template";
+import Template from "./views/Template2";
 import Tabla from "./views/Tabla";
 import Consulta5 from "./views/Consulta5";
 import Consulta2 from "./views/Consulta2";
@@ -15,7 +15,7 @@ import Consulta8 from "./views/Consulta8";
 
 class App extends Component {
   render() {
-    return <Consulta8 />;
+    return <Template />;
   }
 }
 
