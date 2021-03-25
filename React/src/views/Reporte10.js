@@ -17,6 +17,10 @@ constructor() {
 super();
 this.updateChart = this.updateChart.bind(this);
 }
+componentWillUnmount() {
+  //this.props.destroy(this.props.id);
+  console.log('go go');
+}
 
 // componentDidMount() {
 // 	setInterval(this.updateChart, updateInterval);
@@ -38,10 +42,15 @@ xVal++;
 if (dps.length >  10 ) {
   dps.shift();
 }
-this.chart.render();
+if(this.chart != undefined)
+{
+  this.chart.render();
+}
+
 }
 
 render() {
+
 const options = {
   theme: "light3",
   exportEnabled: true,
