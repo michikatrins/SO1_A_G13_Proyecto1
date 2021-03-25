@@ -23,6 +23,8 @@ import PieChart from "./pie & funnel charts/Pie Chart";
 import PieChartWithCustomization from "./pie & funnel charts/Pie Chart with Customization";
 import './bootstrap.min.css'; 
 import BootstrapTable from 'react-bootstrap-table-next';
+import Reporte9 from './Reporte9';
+import Reporte3 from './Reporte3';
 
 const person = [
     {id: 1, name: 'Gob', value: '2'},
@@ -61,6 +63,8 @@ class Template extends Component {
 							<Container>
 								<div className="content">
 									<Route exact path="/" component={PieChart}/>
+									<Route exact path="/reporte9" component={Reporte9}/>
+									<Route exact path="/reporte3" component={Reporte3}/>
 								</div>
 							</Container>
 						</Col>					

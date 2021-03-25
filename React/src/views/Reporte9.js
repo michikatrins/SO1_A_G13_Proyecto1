@@ -76,14 +76,12 @@ class Reporte9 extends Component{
           /* onRef={ref => this.chart = ref} */
         />
         
-        <p className="Table-header">Reporte 3</p>
+        <p className="Table-header">Reporte 9</p>
         <BootstrapTable keyField='id' data={ person } columns={ columns } />
         {/*You can get reference to the chart instance as shown above using onRef. This allows you to access all chart properties and methods*/}
       </div>
-
       );
     }
-
 }
 
 
