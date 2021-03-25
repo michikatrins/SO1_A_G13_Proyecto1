@@ -3,7 +3,6 @@ import React, { Component } from 'react';
 import './bootstrap.min.css'; 
 import BootstrapTable from 'react-bootstrap-table-next';
 import CanvasJSReact from '../assets/canvasjs.react';
-var groupBy = require('json-groupby')
 var CanvasJS = CanvasJSReact.CanvasJS;
 var CanvasJSChart = CanvasJSReact.CanvasJSChart;
 

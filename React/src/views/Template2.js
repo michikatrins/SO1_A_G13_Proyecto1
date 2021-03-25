@@ -24,7 +24,9 @@ import PieChartWithCustomization from "./pie & funnel charts/Pie Chart with Cust
 import './bootstrap.min.css'; 
 import BootstrapTable from 'react-bootstrap-table-next';
 import Reporte3 from './Reporte3';
+import Reporte7 from './Reporte7';
 import Reporte9 from './Reporte9';
+import Reporte10 from './Reporte10';
 import Consulta1 from './Consulta1';
 import Consulta1B from './Consulta1B';
 import Consulta1C from './Consulta1C';
@@ -35,6 +37,7 @@ import Consulta4 from './Consulta4';
 import Consulta5 from './Consulta5';
 import Consulta6 from './Consulta6';
 import ConsultaJossie from './ConsultaJossie';
+import Consulta8 from './Consulta8';
 
 const person = [
     {id: 1, name: 'Gob', value: '2'},
@@ -65,7 +68,7 @@ class Template extends Component {
       <div>
         <Navbar bg="dark" variant="dark">
           <button className="d-lg-none toggle-sidebar"><span className="navbar-toggler-icon"></span></button>
-          <Navbar.Brand href="/">CanvasJS Examples</Navbar.Brand><span className="hidden-xs text-muted">React</span>
+          <Navbar.Brand href="/">Grupo_13</Navbar.Brand><span className="hidden-xs text-muted"></span>
           </Navbar>		  
           <BrowserRouter>		  
             <Row>
@@ -88,7 +91,10 @@ class Template extends Component {
                       <ListGroup.Item> <NavLink exact to="/Consulta4">Reporte4</NavLink></ListGroup.Item>
                       <ListGroup.Item> <NavLink exact to="/Consulta5">Reporte5</NavLink></ListGroup.Item>
                       <ListGroup.Item> <NavLink exact to="/Consulta6">Reporte6</NavLink></ListGroup.Item>
+                      <ListGroup.Item> <NavLink exact to="/Reporte7">Reporte7</NavLink></ListGroup.Item>
+                      <ListGroup.Item> <NavLink exact to="/Consulta8">Reporte8</NavLink></ListGroup.Item>
                       <ListGroup.Item> <NavLink exact to="/Reporte9">Reporte9</NavLink></ListGroup.Item>
+                      <ListGroup.Item> <NavLink exact to="/Reporte10">Reporte10</NavLink></ListGroup.Item>
                     </ListGroup>
                   </ListGroup>
                 </ListGroup>
@@ -109,7 +115,10 @@ class Template extends Component {
                     <Route exact path="/Consulta4" component={Consulta4}/>
                     <Route exact path="/Consulta5" component={Consulta5}/>
                     <Route exact path="/Consulta6" component={Consulta6}/>
+                    <Route exact path="/Reporte7" component={Reporte7}/>
+                    <Route exact path="/Consulta8" component={Consulta8}/>
                     <Route exact path="/Reporte9" component={Reporte9}/>
+                    <Route exact path="/Reporte10" component={Reporte10}/>
                   </div>
                 </Container>
               </Col>					
