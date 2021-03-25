@@ -16,8 +16,8 @@ class Consulta5 extends Component {
       .then((response) => response.json())
       .then((datos) => {
         console.log(datos);
-        this.state = { archivo: datos };
-      });
+        this.setState({archivo:datos});
+      })
   }
   render() {
     var infectados = {};

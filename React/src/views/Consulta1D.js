@@ -66,7 +66,7 @@ class Consulta1D extends Component {
         }
         return (
             <div className="App">
-            <p className="Table-header">Basic Table</p>
+            <h1>RABBITMQ</h1>
             <BootstrapTable keyField='id' data={ paraTabla.reverse() } columns={ columns } />
             </div>
         );

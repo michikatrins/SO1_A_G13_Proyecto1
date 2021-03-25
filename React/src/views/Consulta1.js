@@ -60,7 +60,7 @@ class Consulta1 extends Component {
         console.log(archivo);
         return (
             <div className="App">
-            <p className="Table-header">Basic Table</p>
+            <h1>Todos los datos</h1>
             <BootstrapTable keyField='id' data={ archivo.reverse() } columns={ columns } />
             </div>
         );
