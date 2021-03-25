@@ -24,4 +24,4 @@ class QuickstartUser(HttpUser):
             print(reg)
 
         #self.client.get("http://localhost/")
-        self.client.post("http://34.117.48.1:80/", json=reg)
+        self.client.post("http://localhost/", json=reg)
