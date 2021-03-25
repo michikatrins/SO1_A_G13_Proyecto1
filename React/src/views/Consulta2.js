@@ -25,28 +25,42 @@ class Consulta2 extends Component {
       }
 	render() {
         var regiones={
-            Jalapa:0,
-            Suchitepequez:0
+            Region_Oriente:0,
+            Peten:0,
+			Franja_Transversal_del_Norte:0,
+			Litoral_del_Pacifico:0,
+			El_Resto:0
+
         };
         const { archivo } = this.state;
         console.log(archivo);
         for(var i=0;i<archivo.length;i++){
-            if(archivo[i].location == "Jalapa"){
-                regiones["Jalapa"]+=1;
+            if(archivo[i].location == "Zacapa" || archivo[i].location == "El Progreso" || archivo[i].location == "Chiquimula" || archivo[i].location == "Izabal" || archivo[i].location == "Jutiapa" || archivo[i].location == "Jalapa" || archivo[i].location == "Santa Rosa"){
+                regiones["Region_Oriente"]+=1;
             }
-            else if(archivo[i].location == "Suchitepequez"){
-                regiones["Suchitepequez"]+=1;
+            else if(archivo[i].location == "Peten"){
+                regiones["Peten"]+=1;
             }
-            
+            else if(archivo[i].location == "Huehuetenango" || archivo[i].location == "Izabal" || archivo[i].location == "Alta Verapaz"){
+                regiones["Franja_Transversal_del_Norte"]+=1;
+            }
+			else if(archivo[i].location == "Jutiapa" || archivo[i].location == "Santa Rosa" || archivo[i].location == "Escuintla" || archivo[i].location == "Suchitepequez" || archivo[i].location == "Retalhuleu" || archivo[i].location == "San Marcos" || archivo[i].location == "Quetzaltenango"){
+                regiones["Litoral_del_Pacifico"]+=1;
+            }
+			else if(archivo[i].location == "Baja Verapaz" || archivo[i].location == "Chimaltenago" || archivo[i].location == "Guatemala" || archivo[i].location == "Quiché" || archivo[i].location == "Sacatepequez" || archivo[i].location == "Sololá" || archivo[i].location == "Totonicapán" ){
+                regiones["El_Resto"]+=1;
+            }
         }
         console.log(regiones);
-
+		var maxKey = Object.keys(regiones).reduce(function(a, b){ return regiones[a] > regiones[b] ? a : b });
+		console.log("el maximo es: ",maxKey);
         
+
 		const options = {
 			exportEnabled: true,
 			animationEnabled: true,
 			title: {
-				text: "Gráfico circular del porcentaje de casos infectados por infectedType."
+				text: "Región más infectada ==>    " + maxKey
 			},
 			data: [{
 				type: "pie",
@@ -57,18 +71,14 @@ class Consulta2 extends Component {
 				indexLabelFontSize: 16,
 				indexLabel: "{label} - {y}%",
 				dataPoints:  [
-					{ y: 18, label: "Direct" },
-					{ y: 49, label: "Organic Search" },
-					{ y: 9, label: "Paid Search" },
-					{ y: 5, label: "Referral" },
-					{ y: 19, label: "Social" }
+					
 				]
 			}]
 		}
 		
 		return (
 		<div>
-			<h1>Grupo_13</h1>
+			<h1>Grupo 13</h1>
 			<CanvasJSChart options = {options} 
 				/* onRef={ref => this.chart = ref} */
 			/>
