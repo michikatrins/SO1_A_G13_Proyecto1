@@ -2,11 +2,6 @@ import React, { Component } from "react";
 import "./bootstrap.min.css";
 import BootstrapTable from "react-bootstrap-table-next";
 
-const person = [
-  { id: 1, name: "Gob", value: "2" },
-  { id: 2, name: "Buster", value: "5" },
-  { id: 3, name: "George Michael", value: "4" },
-];
 const columns = [
   {
     dataField: "name",
